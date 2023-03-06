@@ -29,8 +29,11 @@ public class PinSpawner : MonoBehaviour
     private float bottomAngle = 270;
     private List<Pin> throwablePins;
 
+    private AudioSource audioSource;
+
     public void SetUp()
     {
+        audioSource = GetComponent<AudioSource>();
         throwablePins = new List<Pin>();
     }
 
@@ -49,6 +52,8 @@ public class PinSpawner : MonoBehaviour
             }
 
             stageController.DecreaseThrowablePin();
+
+            audioSource.Play();
         }
     }
 
