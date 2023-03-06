@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1c1b3d25b3f43809991ccee14ed530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageController: {fileID: 1526193959}
   rotateSpeed: 50
   maxRotateSpeed: 500
   rotateAngle: {x: 0, y: 0, z: 1}
@@ -877,6 +878,7 @@ GameObject:
   - component: {fileID: 821546121}
   - component: {fileID: 821546123}
   - component: {fileID: 821546122}
+  - component: {fileID: 821546124}
   m_Layer: 5
   m_Name: PanelMainMenu
   m_TagString: Untagged
@@ -947,6 +949,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821546120}
   m_CullTransparentMesh: 1
+--- !u!114 &821546124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821546120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f117ef8fdda4708bb4322b2438e5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTime: 0.5
 --- !u!1 &918027204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1c1b3d25b3f43809991ccee14ed530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageController: {fileID: 1526193959}
   rotateSpeed: 0
   maxRotateSpeed: 500
   rotateAngle: {x: 0, y: 0, z: 1}
@@ -1543,6 +1559,7 @@ MonoBehaviour:
   mainCamera: {fileID: 519420031}
   rotatorTarget: {fileID: 44113941}
   rotatorIndexPanel: {fileID: 1123076841}
+  uIMainMenu: {fileID: 1579997247}
   throwablePinCount: 5
   stuckPinCount: 5
 --- !u!4 &1526193960
@@ -1589,6 +1606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0e90653b34421da4f641a32ac97b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageController: {fileID: 1526193959}
+  menuPanel: {fileID: 821546124}
 --- !u!4 &1579997248
 Transform:
   m_ObjectHideFlags: 0

@@ -1,12 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIMainMenu : MonoBehaviour
 {
+    [SerializeField]
+    private StageController stageController;
+    [SerializeField]
+    private RectTransformMover menuPanel;
+    private Vector3 inactivePosition = Vector3.left * 1080;
+    private Vector3 activePosition = Vector3.zero;
+
     public void ButtonClickEventStart()
     {
-        Debug.Log("GameStart");
+        menuPanel.MoveTo(AfterStartEvent, inactivePosition);
+    }
+
+    private void AfterStartEvent()
+    {
+        stageController.IsGameStart = true;
     }
 
     public void ButtonClickEventReset()
@@ -24,4 +37,13 @@ public class UIMainMenu : MonoBehaviour
         Application.Quit();
         #endif
     }
+    public void StageExit()
+    {
+        menuPanel.MoveTo(AfterStageExitEvent, activePosition);
+    }
+    private void AfterStageExitEvent()
+    {
+        SceneManager.LoadScene(0);
+    }
+    
 }

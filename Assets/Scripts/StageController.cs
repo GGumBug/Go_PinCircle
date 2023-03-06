@@ -13,6 +13,8 @@ public class StageController : MonoBehaviour
     [SerializeField]
     private Rotator rotatorIndexPanel;
     [SerializeField]
+    private UIMainMenu uIMainMenu;
+    [SerializeField]
     private int throwablePinCount;
     [SerializeField]
     private int stuckPinCount;
@@ -23,6 +25,7 @@ public class StageController : MonoBehaviour
     private Color clearBackgroundColor = new Color(0, 0.5f, 0.25f);
 
     public bool IsGameOver {set; get;} = false;
+    public bool IsGameStart{set; get;} = false;
 
     private void Awake() {
         pinSpawner.SetUp();
@@ -47,6 +50,8 @@ public class StageController : MonoBehaviour
         mainCamera.backgroundColor = failBackgroundColor;
 
         rotatorTarget.Stop();
+
+        StartCoroutine("StageExit", 0.5f);
     }
 
     public void DecreaseThrowablePin()
@@ -72,5 +77,14 @@ public class StageController : MonoBehaviour
 
         rotatorTarget.RotateFast();
         rotatorIndexPanel.RotateFast();
+
+        StartCoroutine("StageExit", 1);
+    }
+
+    private IEnumerator StageExit(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        uIMainMenu.StageExit();
     }
 }
